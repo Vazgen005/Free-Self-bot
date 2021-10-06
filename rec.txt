@@ -1,0 +1,7 @@
+discord
+termcolor
+art
+faker
+speedtest-cli
+ping3
+numpy
