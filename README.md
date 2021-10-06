@@ -1,3 +1,3 @@
 # Self-bot-by-Vazgen005
-cum?
+cum?\n
 Code? Soon...
