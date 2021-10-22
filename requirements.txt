@@ -5,3 +5,6 @@ faker
 speedtest-cli
 ping3
 numpy
+aiofiles
+requests
+nekos.py
