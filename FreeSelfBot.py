@@ -40,7 +40,7 @@ try:
     file.close()
     os.remove("token.txt")
 except FileNotFoundError:
-    token = (input(colored('Enter your token to continue - ', 'cyan')))
+    token = (input(colored('Enter your authorization token to continue - ', 'cyan')))
 
 clearConsole()
 
