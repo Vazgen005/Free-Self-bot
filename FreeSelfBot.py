@@ -1,18 +1,19 @@
-import aiofiles
 import asyncio
 import contextlib
-import discord
 import io
 import json
-import nekos
-import numpy
 import os
 import random
-import requests
 import string
 import sys
-from art import *
 from collections import OrderedDict
+
+import aiofiles
+import discord
+import nekos
+import numpy
+import requests
+from art import *
 from discord.ext import commands
 from faker import Faker
 from ping3 import ping
@@ -275,8 +276,10 @@ async def opr(opr_send):
 
 @client.command()
 async def speed(spi):
-    await spi.message.edit(content="", embed=discord.Embed(title='Please wait the internet speed is being measured...',
-                                                           color=0xFF0000))
+    await spi.message.edit(content="",
+                           embed=discord.Embed(
+                                title='Please wait the internet speed is being measured...',
+                                color=0xFF0000))
     try:
         def tofixed(numObj, digits=0):
             return f"{numObj:.{digits}f}"
@@ -288,10 +291,14 @@ async def speed(spi):
             return str(int(numpy.mean(a)))
 
         embspeed = discord.Embed(title='My internet speed', color=0xFF0000)
-        embspeed.add_field(name='Ping: ', value=pingg(), inline=False)
-        embspeed.add_field(name='Download speed: ', value=str(f'{tofixed(Speedtest().download() / 8e+6, 1)} mb/s'),
+        embspeed.add_field(name='Ping: ',
+                           value=pingg(),
                            inline=False)
-        embspeed.add_field(name='Upload speed: ', value=str(f'{tofixed(Speedtest().upload() / 8e+6, 1)} mb/s'),
+        embspeed.add_field(name='Download speed: ',
+                           value=str(f'{tofixed(Speedtest().download() / 8e+6, 1)} mb/s'),
+                           inline=False)
+        embspeed.add_field(name='Upload speed: ',
+                           value=str(f'{tofixed(Speedtest().upload() / 8e+6, 1)} mb/s'),
                            inline=False)
         await spi.message.edit(embed=embspeed)
     except:
