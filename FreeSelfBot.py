@@ -79,7 +79,8 @@ async def emb(emb_send, *, text):
 
 
 embedVar2 = discord.Embed(
-    title="Free Discord SelfBot", description="special thanks ZertMARK#9934 and voidptr_t#1488 for helping in creating this bot",
+    title="Free Discord SelfBot",
+    description="special thanks ZertMARK#9934 and voidptr_t#1488 for helping in creating this bot",
     color=0xff0000)
 embedVar2.set_author(name="Vazgen005#0001",
                      icon_url="https://i.imgur.com/lyqGACo.gif")
@@ -89,11 +90,11 @@ embedVar2.set_author(name="Vazgen005#0001",
 async def author(author_send):
     await author_send.message.delete()
     await author_send.send(embed=discord.Embed(
-    title="Free Discord SelfBot",
-    description="special thanks ZertMARK#9934 and voidptr_t#1488 for helping in creating this bot",
-    color=0xff0000).set_author(
-    name="Vazgen005#0001",
-    icon_url="https://i.imgur.com/lyqGACo.gif"))
+        title="Free Discord SelfBot",
+        description="special thanks ZertMARK#9934 and voidptr_t#1488 for helping in creating this bot",
+        color=0xff0000).set_author(
+        name="Vazgen005#0001",
+        icon_url="https://i.imgur.com/lyqGACo.gif"))
 
 
 @client.command()
@@ -107,8 +108,8 @@ async def nuz(n_send):
         await n_send.message.delete()
         m = await n_send.send(
             embed=discord.Embed(
-            title="create anecdote.txt with anecdotes to use this command",
-            color=0xFF0000))
+                title="create anecdote.txt with anecdotes to use this command",
+                color=0xFF0000))
         await asyncio.sleep(5)
         await m.delete()
 
@@ -160,7 +161,13 @@ async def info(inf, user: discord.User = None):
     embinfo.add_field(name="Created at", value=str(user.created_at)[:-7], inline=False)
     embinfo.set_thumbnail(url=user.avatar_url)
     embinfo.add_field(name='ID', value=user.id, inline=False)
-    await inf.send(embed=embinfo)
+    await inf.send(
+        embed=discord.Embed(
+            title='Account information - ' + user.display_name + '#' + user.discriminator,
+            color=0xFF0000).add_field(
+            name="Created at", value=str(user.created_at)[:-7], inline=False).set_thumbnail(
+            url=user.avatar_url).add_field(
+            name='ID', value=user.id, inline=False))
 
 
 @client.command()
@@ -203,6 +210,7 @@ async def dog(cumm):
     r = requests.get(cum[0]['url'])
     await cumm.send(file=discord.File(fp=io.BytesIO(r.content), filename='dog.png'))
 
+
 @client.command()
 async def duck(cumm):
     await cumm.message.delete()
@@ -211,6 +219,7 @@ async def duck(cumm):
     r = requests.get(cum['url'])
     await cumm.send(file=discord.File(fp=io.BytesIO(r.content), filename='duck.png'))
 
+
 @client.command()
 async def fox(cumm):
     await cumm.message.delete()
@@ -218,6 +227,7 @@ async def fox(cumm):
     cum = (json.loads(cumer.text))
     r = requests.get(cum['image'])
     await cumm.send(file=discord.File(fp=io.BytesIO(r.content), filename='fox.png'))
+
 
 @client.command()
 async def neko(ee, dd=None):
@@ -265,15 +275,18 @@ async def opr(opr_send):
 
 @client.command()
 async def speed(spi):
-    await spi.message.edit(content="", embed=discord.Embed(title='Please wait the internet speed is being measured...', color=0xFF0000))
+    await spi.message.edit(content="", embed=discord.Embed(title='Please wait the internet speed is being measured...',
+                                                           color=0xFF0000))
     try:
         def tofixed(numObj, digits=0):
             return f"{numObj:.{digits}f}"
+
         def pingg():
             a = []
             for i in range(5):
                 a.append(ping('discord.com') * 1000)
             return str(int(numpy.mean(a)))
+
         embspeed = discord.Embed(title='My internet speed', color=0xFF0000)
         embspeed.add_field(name='Ping: ', value=pingg(), inline=False)
         embspeed.add_field(name='Download speed: ', value=str(f'{tofixed(Speedtest().download() / 8e+6, 1)} mb/s'),
