@@ -1,23 +1,23 @@
-import asyncio
-import json
-import numpy
 import aiofiles
-import discord
-import requests
-import random
-import string
-import os
-import sys
-from discord.ext import commands
-from termcolor import colored
+import asyncio
 import contextlib
+import discord
 import io
-from art import *
-from faker import Faker
-from collections import OrderedDict
-from speedtest import Speedtest
-from ping3 import ping
+import json
 import nekos
+import numpy
+import os
+import random
+import requests
+import string
+import sys
+from art import *
+from collections import OrderedDict
+from discord.ext import commands
+from faker import Faker
+from ping3 import ping
+from speedtest import Speedtest
+from termcolor import colored
 
 
 def clearConsole():
@@ -88,7 +88,12 @@ embedVar2.set_author(name="Vazgen005#0001",
 @client.command()
 async def author(author_send):
     await author_send.message.delete()
-    await author_send.send(embed=embedVar2)
+    await author_send.send(embed=discord.Embed(
+    title="Free Discord SelfBot",
+    description="special thanks ZertMARK#9934 and voidptr_t#1488 for helping in creating this bot",
+    color=0xff0000).set_author(
+    name="Vazgen005#0001",
+    icon_url="https://i.imgur.com/lyqGACo.gif"))
 
 
 @client.command()
@@ -101,7 +106,9 @@ async def nuz(n_send):
     else:
         await n_send.message.delete()
         m = await n_send.send(
-            embed=discord.Embed(title="create anecdote.txt with anecdotes to use this command", color=0xFF0000))
+            embed=discord.Embed(
+            title="create anecdote.txt with anecdotes to use this command",
+            color=0xFF0000))
         await asyncio.sleep(5)
         await m.delete()
 
