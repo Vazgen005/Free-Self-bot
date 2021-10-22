@@ -1,6 +1,6 @@
 # Self-bot-by-Vazgen005
 
-How to install
+How to run
 
  git clone https://github.com/Vazgen005/Self-bot-by-Vazgen005/
  
