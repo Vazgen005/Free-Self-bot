@@ -20,3 +20,4 @@ build/FreeSelfBot/xref-FreeSelfBot.html
 .idea/modules.xml
 .idea/vcs.xml
 /.idea/misc.xml
+dist/FreeSelfBot.exe
