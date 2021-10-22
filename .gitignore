@@ -1,0 +1,16 @@
+
+FreeSelfBot.spec
+build/FreeSelfBot/FreeSelfBot.exe.manifest
+build/FreeSelfBot/base_library.zip
+build/FreeSelfBot/Analysis-00.toc
+__pycache__/FreeSelfBot.cpython-39.pyc
+build/FreeSelfBot/EXE-00.toc
+build/FreeSelfBot/PKG-00.pkg
+build/FreeSelfBot/PKG-00.toc
+build/FreeSelfBot/PYZ-00.pyz
+build/FreeSelfBot/PYZ-00.toc
+build/FreeSelfBot/Tree-01.toc
+build/FreeSelfBot/Tree-00.toc
+build/FreeSelfBot/Tree-02.toc
+build/FreeSelfBot/warn-FreeSelfBot.txt
+build/FreeSelfBot/xref-FreeSelfBot.html
