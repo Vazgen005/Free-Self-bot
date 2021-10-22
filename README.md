@@ -2,7 +2,7 @@
 
 How to run
 
- git clone https://github.com/Vazgen005/Self-bot-by-Vazgen005/
+ git clone https://github.com/Vazgen005/Free-Self-bot
  
  pip install -r requirements.txt
  
