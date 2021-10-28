@@ -1,23 +1,23 @@
-from collections import OrderedDict
-from discord.ext import commands
-from speedtest import Speedtest
-from termcolor import colored
-from faker import Faker
-from ping3 import ping
-import contextlib
-from art import *
-import requests
-import aiofiles
 import asyncio
-import discord
+import contextlib
+import io
+import json
+import os
 import random
 import string
-import nekos
-import numpy
-import json
 import sys
-import io
-import os
+from collections import OrderedDict
+
+import aiofiles
+import discord
+import nekos
+import requests
+from art import *
+from discord.ext import commands
+from faker import Faker
+from ping3 import ping
+from speedtest import Speedtest
+from termcolor import colored
 
 
 def clearConsole():
@@ -62,8 +62,6 @@ async def on_ready():
           "\nemb\nauthor\nnuz\nclear\naci\neval\ninfo\nnig\nrand\ncat\ndog\nopr\nspeed\nduck\nfox\nneko\n",
           (colored("\n Any command start with a dot\n", "blue")))
     print(colored('SelfBot launched on account -', 'magenta'), (colored('{0.user}'.format(client), 'red')))
-
-
 try:
     f = open('anecdote.txt', 'r', encoding='utf-8')
     anecdote = f.readlines()
@@ -286,7 +284,8 @@ async def speed(spi):
             a = []
             for i in range(5):
                 a.append(ping('discord.com') * 1000)
-            return str(int(numpy.mean(a)))
+
+            return str(int(sum(a)/len(a)))
 
         embspeed = discord.Embed(title='My internet speed', color=0xFF0000)
         embspeed.add_field(name='Ping: ',
