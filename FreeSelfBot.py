@@ -69,7 +69,7 @@ try:
     anecdote = f.readlines()
     f.close()
 except:
-    None
+    ''
 
 
 @client.command()
@@ -121,7 +121,7 @@ async def clear(ctx, limit: int = None):
             try:
                 await msg.delete()
             except:
-                None
+                ''
 
 
 @client.command()
@@ -145,10 +145,9 @@ async def eval(ctx, code):
 
 
 @client.command()
-async def aci(ascii_send, *, aci):
+async def aci(ascii_send, acii):
     await ascii_send.message.delete()
-    Art = text2art(aci)
-    await ascii_send.send(embed=discord.Embed(description=(('```\n' + Art + '\n```')), color=0x2F3136))
+    await ascii_send.send(embed=discord.Embed(description=('```\n' + text2art(acii) + '\n```'), color=0x2F3136))
 
 
 @client.command()
