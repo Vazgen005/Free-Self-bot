@@ -61,6 +61,8 @@ async def on_ready():
           "\nemb\nauthor\nnuz\nclear\naci\neval\ninfo\nnig\nrand\ncat\ndog\nopr\nspeed\nduck\nfox\nneko\n",
           (colored("\n Any command start with a dot\n", "blue")))
     print(colored('SelfBot launched on account -', 'magenta'), (colored('{0.user}'.format(client), 'red')))
+
+
 try:
     f = open('anecdote.txt', 'r', encoding='utf-8')
     anecdote = f.readlines()
@@ -192,10 +194,9 @@ async def rand(rand_s):
 @client.command()
 async def cat(cumm):
     await cumm.message.delete()
-    cumer = requests.request('GET', 'https://api.thecatapi.com/v1/images/search')
-    cum = (json.loads(cumer.text))
-    r = requests.get(cum[0]['url'])
-    g = await cumm.send(file=discord.File(fp=io.BytesIO(r.content), filename='cat.png'))
+    await cumm.send(file=discord.File(fp=io.BytesIO(requests.get(json.loads(requests.request(
+        'GET',
+        'https://api.thecatapi.com/v1/images/search').text)[0]['url']).content), filename='cat.png'))
 
 
 @client.command()
@@ -273,8 +274,8 @@ async def opr(opr_send):
 async def speed(spi):
     await spi.message.edit(content="",
                            embed=discord.Embed(
-                                title='Please wait the internet speed is being measured...',
-                                color=0xFF0000))
+                               title='Please wait the internet speed is being measured...',
+                               color=0xFF0000))
     try:
         def tofixed(numObj, digits=0):
             return f"{numObj:.{digits}f}"
@@ -284,7 +285,7 @@ async def speed(spi):
             for i in range(5):
                 a.append(ping('discord.com') * 1000)
 
-            return str(int(sum(a)/len(a)))
+            return str(int(sum(a) / len(a)))
 
         embspeed = discord.Embed(title='My internet speed', color=0xFF0000)
         embspeed.add_field(name='Ping: ',
