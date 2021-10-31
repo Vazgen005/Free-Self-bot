@@ -30,3 +30,4 @@ dist/pytransform/__init__.py
 dist/pytransform/__pycache__/__init__.cpython-310.pyc
 dist/pytransform/_pytransform.dll
 /token.txt
+/.idea/highlightedFiles.xml
