@@ -1,23 +1,22 @@
-import asyncio
-import contextlib
-import io
-import json
-import os
-import random
-import string
-import sys
 from collections import OrderedDict
-
-import aiofiles
-import discord
-import nekos
-import requests
-from art import *
 from discord.ext import commands
-from faker import Faker
-from ping3 import ping
 from speedtest import Speedtest
 from termcolor import colored
+from faker import Faker
+from ping3 import ping
+import contextlib
+from art import *
+import aiofiles
+import requests
+import asyncio
+import discord
+import random
+import string
+import nekos
+import json
+import sys
+import io
+import os
 
 
 def clearConsole():
