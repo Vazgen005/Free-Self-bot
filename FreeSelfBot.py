@@ -48,11 +48,6 @@ async def on_ready():
     print(colored('SelfBot launched on account -', 'magenta'), (colored('{0.user}'.format(client), 'red')))
 
 
-
-
-from functions.funk import *
-
-
 print((colored('Checking profile...\n', 'cyan')))
 
 try:
