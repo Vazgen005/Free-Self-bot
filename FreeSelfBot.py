@@ -43,7 +43,7 @@ async def on_ready():
     await client.change_presence(status=discord.Status.offline)
     print((colored('Free Discord SelfBot By', 'magenta')), (colored('Vazgen005#0001\n', 'red')))
     print(colored(" Available commands:", "blue"),
-          '''\nemb\nauthor\nnuz\nclear\naci\neval\ninfo\nnig\nrand\ncat\ndog\nopr\nspeed\nduck\nfox\nneko\n''',
+          '''\nemb\nauthor\nnuz\nclear\naci\neval\ninfo\nnig\nrand\ncat\ndog\nopr\nspeed\nduck\nfox\nneko\nai\nrule\n''',
           (colored("\n Any command start with a dot\n", "blue")))
     print(colored('SelfBot launched on account -', 'magenta'), (colored('{0.user}'.format(client), 'red')))
 

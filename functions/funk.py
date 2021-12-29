@@ -1,4 +1,4 @@
-from .client import client, anecdote
+from client import client, anecdote
 from collections import OrderedDict
 from speedtest import Speedtest
 from faker import Faker
@@ -243,3 +243,44 @@ async def speed(spi):
         await spi.message.edit(embed=embspeed)
     except:
         await spi.message.edit(embed=discord.Embed(title='An error occurred during speedtest', color=0xFF0000))
+
+@client.command()
+async def ai(msg):
+    inf = msg.message.content
+    await msg.message.edit(content='', embed=discord.Embed(title='Loading...', color=0xfff500))
+
+    def bab(textx):
+        response = urllib.request.urlopen(urllib.request.Request("https://zeapi.yandex.net/lab/api/yalm/text3",
+                                                                 data=json.dumps(
+                                                                     {"query": textx, "intro": 0, "filter": 1}).encode(
+                                                                     "utf-8"),
+                                                                 headers={'Content-Type': 'application/json'}))
+        textxx = json.loads(response.read().decode('utf-8'))['text']
+        if textxx == '':
+            return 'Err'
+        else:
+            return f"**{textx}** {textxx}"
+
+    await msg.message.edit(content='', embed=discord.Embed(title='Balaboba', description=bab(inf[4:]), color=0xfff500))
+
+
+@client.command()
+async def rule(msg):
+    await msg.message.delete()
+
+    def porn():
+        cum = json.loads(requests.get(
+            url=f'https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&json=1&limit=1000&tags=-trap+-futanari+-furi+-big_breasts+-sketch+-gay+-gay_sex+-anthro+-breast_expansion+-breasts_bigger_than_head+-massive_breasts+-abs+-1boy+-2boys+-male_only+-animal_genitalia&pid={random.randint(1, 200)}').content)
+        r = random.randint(0, 999)
+        return requests.get(url=cum[r]['file_url']).content, cum[r]['image']
+
+    porno = porn()
+    try:
+        await msg.send(file=discord.File(fp=io.BytesIO(porno[0]), filename=porno[1]))
+    except discord.errors.HTTPException:
+        m = await msg.send(
+            embed=discord.Embed(
+                title="Unfortunately, it didn't work out to send the content because someone has a media scanner turned on or you sent the message not to the NTFS channel",
+                color=0xFF0000))
+        await asyncio.sleep(10)
+        await m.delete()
