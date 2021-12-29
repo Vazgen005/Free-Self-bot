@@ -36,3 +36,6 @@ functions/__pycache__/client.cpython-310.pyc
 .idea/discord.xml
 .idea/discord.xml
 .idea/discord.xml
+__pycache__/FreeSelfBot.cpython-310.pyc
+build/FreeSelfBot/FreeSelfBot.pkg
+.idea/workspace.xml
