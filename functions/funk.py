@@ -3,6 +3,7 @@ from collections import OrderedDict
 from speedtest import Speedtest
 from faker import Faker
 from ping3 import ping
+import urllib.request
 import contextlib
 from art import *
 import requests
@@ -13,6 +14,7 @@ import string
 import nekos
 import json
 import io
+
 
 @client.command()
 async def emb(emb_send, *, text):
@@ -243,6 +245,7 @@ async def speed(spi):
         await spi.message.edit(embed=embspeed)
     except:
         await spi.message.edit(embed=discord.Embed(title='An error occurred during speedtest', color=0xFF0000))
+
 
 @client.command()
 async def ai(msg):
